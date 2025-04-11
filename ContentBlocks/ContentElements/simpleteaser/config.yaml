@@ -1,0 +1,24 @@
+contentBlock:
+  identifier: pep/simpleteaser
+  title: 'Simple Teaser'
+  description: 'A simple teaser with title, subtitle, image and link.'
+  icon: 'content-text'       # Privremeno ćemo koristiti default ikonicu
+  group: 'common'            # Grupa gde ćeš ga videti kod dodavanja sadržaja
+
+fields:
+  - identifier: header
+    label: 'Title'
+    type: input
+  
+  - identifier: subheader
+    label: 'Subtitle'
+    type: input
+
+  - identifier: image
+    label: 'Image'
+    type: file
+    allowedExtensions: 'jpg,jpeg,png,svg'
+
+  - identifier: link
+    label: 'Link'
+    type: link

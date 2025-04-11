@@ -1,0 +1,103 @@
+<!--Newsletter Area Start-->
+<div class="newsletter-area" style="margin-top:50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-sm-5">
+                <div class="newsletter-content">
+                <f:if condition="{v:page.language()}==0">
+                    <f:then>
+                        <h3>PRIJAVITE SE</h3>
+                        <h2>NA NAŠU MEJLING LISTU</h2>
+                    </f:then>
+                    <f:else>						
+                        <h3>SUBSCRIBE</h3>
+                        <h2>TO OUR NEWSLETTER</h2>
+                    </f:else>
+                </f:if>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-7">
+                <div class="newsletter-form angle">
+                    <form action="#" id="mc-form" class="mc-form footer-newsletter fix">
+                        <div class="subscribe-form">
+                            <input id="mc-email" type="email" name="email" placeholder="Enter your email address...">
+                            <button id="mc-submit" type="submit">SUBSCRIBE</button>
+                        </div>    
+                    </form>
+                    <f:comment><f:cObject typoscriptObjectPath="lib.subscription" /></f:comment>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Footer Widget Area Start-->
+<div class="footer-widget-area">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-3 col-sm-4">
+            <div class="single-footer-widget opis">
+            <div class="footer-logo">
+                <f:if condition="{v:page.language()}==0">
+                    <f:then>
+                    <a href="/">
+                    <f:image src="{settings.Pep.logo}" alt="{settings.Pep.logo-alt}" title="Visoka Škola Pep" width="233c" height="62c" />
+                    </a>
+                    </f:then>
+                    <f:else>
+                    <a href="https://demo.vspep.edu.rs/en/">
+                    <f:image src="{settings.Pep.logo}" alt="{settings.Pep.logo-alt}" title="Visoka Škola Pep" width="233c" height="auto" />
+                    </a>		
+                    </f:else>
+                </f:if>
+                <!--<a href="index.html"><img src="https://vspep.ulaz.rs/fileadmin/img/logoPep3.png" alt=""></a>-->
+            </div>
+                <f:comment><f:cObject typoscriptObjectPath="lib.footer_opis" /></f:comment>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/vspep/" target="_blank"><i class="zmdi zmdi-facebook"></i></a>
+                <a href="https://www.instagram.com/vspep/" target="_blank"><i class="zmdi zmdi-instagram"></i></a>
+                <a href="https://www.youtube.com/user/VSPEP" target="_blank"><i class="zmdi zmdi-youtube"></i></a>                
+            </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-4">
+            <div class="single-footer-widget">
+            <f:comment><f:cObject typoscriptObjectPath="lib.footer_kontakt" /></f:comment>
+            </div>
+        </div>
+        <div class="col-md-3 hidden-sm">
+            <div class="single-footer-widget">
+            <f:comment><f:cObject typoscriptObjectPath="lib.useful_links" /></f:comment>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-4">
+            <div class="single-footer-widget instagram">
+            <h3>Instagram</h3>
+            <div id="instagram-image" class="instagram-image">
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<!--Footer Area Start-->
+<f:comment><f:render partial="Footer" arguments="{_all}" /></f:comment>
+<footer class="footer-area">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6 col-sm-7">
+        <span class="copyright">Copyright &copy; {site.configuration.websiteTitle} <f:format.date format="Y">now</f:format.date>. All right reserved<f:comment><f:cObject typoscriptObjectPath="lib.copyright" /></f:comment></span>
+        </div>
+        <div class="col-md-6 col-sm-5">
+        <div class="column-right privacy">
+            <span><f:comment><f:cObject typoscriptObjectPath="lib.footerPrivacyLinks" /></f:comment></span>
+            <span><f:comment><f:cObject typoscriptObjectPath="lib.listOfSelectedPagesFutter" /></f:comment></span>
+        </div>
+        </div>
+    </div>
+    </div>
+</footer>
+<!--End of Footer Area-->
+
+
+        <f:comment><f:render partial="Navigation/FooterMenu.html" arguments="{_all}"/></f:comment>
+

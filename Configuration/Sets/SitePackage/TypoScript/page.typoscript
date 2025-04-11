@@ -1,0 +1,32 @@
+page = PAGE
+page {
+  10 = PAGEVIEW
+  10 {
+    paths {
+      0 = EXT:pep/Resources/Private/PageView/
+      10 = {$Pep.template_path}
+    }
+
+    dataProcessing {
+      # makes content elements available as {content} in Fluid template
+      10 = page-content
+    }
+  }
+  shortcutIcon = {$Pep.favicon}
+}
+
+lib.menu = HMENU
+lib.menu {
+    1 = TMENU
+    1.NO = 1
+    1.NO.allWrap = <li id="id" class="|">|</li>
+    1.IFSUB = 1
+    1.IFSUB.allWrap = <li id="id" class="|">|<ul class="sub-menu">|</ul></li>
+
+    2 = TMENU
+    2.NO = 1
+    2.NO.allWrap = <li class="|">|</li>
+    2.IFSUB = 1
+    2.IFSUB.allWrap = <li class="|">|<ul class="sub-sub-menu">|</ul></li>
+    2.wrap = <ul class="sub-menu">|</ul>
+}

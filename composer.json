@@ -1,0 +1,27 @@
+{
+    "name": "gmbit/pep",
+    "type": "typo3-cms-extension",
+    "description": "pep fluid page template",
+    "homepage": "https://gmbit.rs",
+    "license": ["GPL-2.0-or-later"],
+    "keywords": ["TYPO3 CMS"],
+	"version": "1.0.0",
+    "require": {
+        "typo3/cms-core": "^13.4",
+        "typo3/cms-rte-ckeditor": "^13.4",
+        "typo3/cms-fluid-styled-content": "^13.4"
+    },
+    "suggest": {
+        "friendsoftypo3/content-blocks": "Allows to create custom content elements. "
+    },
+    "autoload": {
+        "psr-4": {
+            "Gmbit\\Pep\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "pep"
+        }
+    }
+}

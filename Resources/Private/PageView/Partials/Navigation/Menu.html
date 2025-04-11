@@ -1,0 +1,53 @@
+<div class="col-md-9 hidden-sm hidden-xs">
+  <div class="mainmenu-area pull-right">
+    <div class="mainmenu">
+      <nav>
+        <v:menu pageUid="{v:variable.typoscript(path:'settings.site.rootPid')}" as="menu">
+          <ul id="nav">
+            <f:for each="{menu}" as="menuPage">
+              <li class="{menuPage.class}">
+                <f:if condition="{menuPage.author}">
+                  <f:then>
+                    <p>{menuPage.title}</p>
+                  </f:then>
+                  <f:else>
+                    <a href="{menuPage.link}" class="{menuPage.class}">{menuPage.title}</a>
+                  </f:else>
+                </f:if>
+                <f:if condition="{menuPage.hasSubPages}">
+                  <ul class="sub-menu">
+                    <v:menu pageUid="{menuPage.uid}" as="submenu">
+                      <f:for each="{submenu}" as="subMenuPage">
+                        <li class="{subMenuPage.class}">
+                          <f:if condition="{subMenuPage.author}">
+                            <f:then>
+                              <p>{subMenuPage.title}</p>
+                            </f:then>
+                            <f:else>
+                              <a href="{subMenuPage.link}" class="{subMenuPage.class}">{subMenuPage.title}</a>
+                            </f:else>
+                          </f:if>
+                          <f:if condition="{subMenuPage.hasSubPages}">
+                            <ul class="sub-sub-menu">
+                              <v:menu pageUid="{subMenuPage.uid}" as="subsubmenu">
+                                <f:for each="{subsubmenu}" as="subsubPage">
+                                  <li class="{subsubPage.class}">
+                                    <a href="{subsubPage.link}">{subsubPage.title}</a>
+                                  </li>
+                                </f:for>
+                              </v:menu>
+                            </ul>
+                          </f:if>
+                        </li>
+                      </f:for>
+                    </v:menu>
+                  </ul>
+                </f:if>
+              </li>
+            </f:for>
+          </ul>
+        </v:menu>
+      </nav>
+    </div>
+  </div>
+</div>

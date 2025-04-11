@@ -1,0 +1,14 @@
+<div class="simple-teaser">
+  <f:if condition="{header}">
+      <h2>{header}</h2>
+  </f:if>
+  <f:if condition="{subheader}">
+      <h3>{subheader}</h3>
+  </f:if>
+  <f:if condition="{image}">
+      <f:image image="{image.0}" alt="{header}" />
+  </f:if>
+  <f:if condition="{link}">
+      <a href="{link}" class="teaser-link">Read more</a>
+  </f:if>
+</div>

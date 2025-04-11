@@ -1,0 +1,53 @@
+<!-- Mobile Menu Area start -->
+<div class="mobile-menu-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="mobile-menu">
+          <v:menu pageUid="{v:variable.typoscript(path:'settings.site.rootPid')}" as="menu" classHasSubpages="dropdown">
+            <nav id="dropdown">							
+              <ul>
+              <f:for each="{menu}" as="menuPage" iteration="iteration">
+                <li>
+                <f:if condition="{menuPage.author}">
+                  <f:then><p class="">{menuPage.title}</p></f:then>																
+                  <f:else><a href="{menuPage.link}" data-toggle="{v:format.trim(content:'{menuPage.class}')}" class="{v:format.trim(content:'{menuPage.class}')}-toggle">{menuPage.title}</a></f:else>
+                  </f:if>
+                <f:if condition="{menuPage.hasSubPages}">
+                  <ul>
+                  <v:menu pageUid="{menuPage.uid}" as="submenu" classActive="active"
+                    classHasSubpages="">
+                    <f:for each="{submenu}" as="subMenuPage">
+                    <li>
+                    <f:if condition="{subMenuPage.author}">
+                      <f:then><p class="">{subMenuPage.title}</p></f:then>																
+                      <f:else><a href="{subMenuPage.link}">{subMenuPage.title}</a></f:else>
+                    </f:if>
+                      <f:if condition="{subMenuPage.hasSubPages}">
+                        <ul>
+                        <v:menu pageUid="{subMenuPage.uid}" as ="subsub" classActive="active" classHasSubpages="" excludePages="19,43,44">
+                          <f:for each="{subsub}" as="subsubPage">
+                          <li>
+                            <a href="{subsubPage.link}">{subsubPage.title}</a>
+                          </li>
+                          </f:for>
+                        </v:menu>
+                        </ul>
+                      </f:if>
+                    </li>
+                    </f:for>
+                  </v:menu>
+                  </ul>
+                </f:if>
+                </li>
+              </f:for>
+              </ul>
+              <f:comment><f:cObject typoscriptObjectPath="lib.headermenu" /></f:comment>
+            </nav>
+            </v:menu>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Mobile Menu Area end -->    
