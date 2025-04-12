@@ -1,24 +1,42 @@
-contentBlock:
-  identifier: pep/simpleteaser
-  title: 'Simple Teaser'
-  description: 'A simple teaser with title, subtitle, image and link.'
-  icon: 'content-text'       # Privremeno ćemo koristiti default ikonicu
-  group: 'common'            # Grupa gde ćeš ga videti kod dodavanja sadržaja
+name: pep/simpleteaser
+typeName: pep_simpleteaser
+group: pep
+title: Simple Teaser
+description: A simple teaser element with title, subtitle, image, and link.
+iconIdentifier: content-simpleteaser
+supertype: content
+prefixFields: true
+prefixType: full
 
 fields:
   - identifier: header
-    label: 'Title'
-    type: input
-  
-  - identifier: subheader
-    label: 'Subtitle'
-    type: input
+    useExistingField: true
 
-  - identifier: image
-    label: 'Image'
-    type: file
-    allowedExtensions: 'jpg,jpeg,png,svg'
+  - identifier: subheader
+    type: Text
+    required: false
+
+  - identifier: bodytext
+    useExistingField: true
+    enableRichtext: true
+
+  - identifier: media
+    type: File
+    allowedFileExtensions: jpg, jpeg, png, gif, webp
+    maxItems: 1
+    required: false
 
   - identifier: link
-    label: 'Link'
-    type: link
+    type: Link
+    required: false
+
+template:
+  templateName: SimpleTeaser
+  layoutRootPaths:
+    - 'EXT:pep/Resources/Private/Layouts/ContentBlocks/'
+  templateRootPaths:
+    - 'EXT:pep/ContentBlocks/ContentElements/SimpleTeaser/Templates/'
+  partialRootPaths:
+    - 'EXT:pep/Resources/Private/Partials/ContentBlocks/'
+  templatePathAndFilename: 
+    - 'EXT:pep/ContentBlocks/ContentElements/SimpleTeaser/Templates/SimpleTeaser.html'

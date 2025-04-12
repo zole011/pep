@@ -1,0 +1,11 @@
+mod {
+  content_elements {
+    simpleteaser {
+      iconIdentifier = content-simpleteaser
+      title = Simple Teaser
+      description = A simple teaser content element
+      CType = simpleteaser
+      templatePath = EXT:pep/ContentBlocks/ContentElements/simpleteaser/Templates/SimpleTeaser.html
+    }
+  }
+}

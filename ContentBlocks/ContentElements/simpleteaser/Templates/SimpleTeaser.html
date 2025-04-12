@@ -1,14 +1,15 @@
 <div class="simple-teaser">
-  <f:if condition="{header}">
-      <h2>{header}</h2>
-  </f:if>
-  <f:if condition="{subheader}">
-      <h3>{subheader}</h3>
-  </f:if>
-  <f:if condition="{image}">
-      <f:image image="{image.0}" alt="{header}" />
-  </f:if>
-  <f:if condition="{link}">
-      <a href="{link}" class="teaser-link">Read more</a>
-  </f:if>
-</div>
+    <f:if condition="{image}">
+      <img src="{image.0.publicUrl}" alt="{title}" class="simple-teaser-image" />
+    </f:if>
+  
+    <h2 class="simple-teaser-title">{title}</h2>
+  
+    <f:if condition="{subtitle}">
+      <h4 class="simple-teaser-subtitle">{subtitle}</h4>
+    </f:if>
+  
+    <f:if condition="{link}">
+      <a href="{link}" class="simple-teaser-link">Read more</a>
+    </f:if>
+  </div>
