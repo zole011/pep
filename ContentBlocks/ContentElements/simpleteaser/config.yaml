@@ -1,42 +1,30 @@
 name: pep/simpleteaser
 typeName: pep_simpleteaser
 group: pep
-title: Simple Teaser
-description: A simple teaser element with title, subtitle, image, and link.
-iconIdentifier: content-simpleteaser
-supertype: content
 prefixFields: true
 prefixType: full
-
 fields:
-  - identifier: header
+  -
+    identifier: header
     useExistingField: true
-
-  - identifier: subheader
-    type: Text
-    required: false
-
-  - identifier: bodytext
+  -
+    identifier: bodytext
     useExistingField: true
     enableRichtext: true
-
-  - identifier: media
-    type: File
-    allowedFileExtensions: jpg, jpeg, png, gif, webp
-    maxItems: 1
-    required: false
-
-  - identifier: link
+  -
+    identifier: button_text
+    type: Text
+    default: 'Read more'
+    min: 4
+    max: 15
+  -
+    identifier: button_link
     type: Link
-    required: false
-
-template:
-  templateName: SimpleTeaser
-  layoutRootPaths:
-    - 'EXT:pep/Resources/Private/Layouts/ContentBlocks/'
-  templateRootPaths:
-    - 'EXT:pep/ContentBlocks/ContentElements/SimpleTeaser/Templates/'
-  partialRootPaths:
-    - 'EXT:pep/Resources/Private/Partials/ContentBlocks/'
-  templatePathAndFilename: 
-    - 'EXT:pep/ContentBlocks/ContentElements/SimpleTeaser/Templates/SimpleTeaser.html'
+    required: true    
+  -
+    identifier: image
+    type: File
+    extendedPalette: false
+    minitems: 1
+    maxitems: 10
+    allowed: common-image-types
