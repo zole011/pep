@@ -15,6 +15,7 @@ page {
   shortcutIcon = {$Pep.favicon}
 }
 
+/*
 lib.menu = HMENU
 lib.menu {
     1 = TMENU
@@ -30,3 +31,4 @@ lib.menu {
     2.IFSUB.allWrap = <li class="|">|<ul class="sub-sub-menu">|</ul></li>
     2.wrap = <ul class="sub-menu">|</ul>
 }
+*/

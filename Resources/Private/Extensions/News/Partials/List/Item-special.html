@@ -1,0 +1,27 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+<!--
+	=====================
+		Partials/List/Item.html<span itemprop="headline">{newsItem.title}</span>
+-->
+<li class="single-latest-item-text{f:if(condition: newsItem.istopnews, then: ' topnews')}" itemscope="itemscope" itemtype="http://schema.org/Article" data-id="{newsItem.uid}">
+	<!-- <n:excludeDisplayedNews newsItem="{newsItem}"/> -->
+
+
+	<!-- header -->
+		<n:removeMediaTags>
+		<f:if condition="{newsItem.title}">
+			<f:then>
+			<n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+				{newsItem.title -> f:format.crop(maxCharacters: 39) -> f:format.html()}
+			</n:link>
+			</f:then>
+			<f:else>
+			</f:else>
+		</f:if>
+		</n:removeMediaTags>
+
+	<!-- teaser -->
+</li>
+</html>

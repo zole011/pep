@@ -1,0 +1,45 @@
+<f:if condition="{news}">
+    <f:then>
+        <f:if condition="{settings.templateLayout} == 1">
+					<f:then>
+						<ul class="news slider">
+								<f:for each="{news}" as="newsItem">
+										<f:render partial="List/slider" arguments="{newsItem: newsItem, settings:settings}"/>
+								</f:for>
+						</ul>
+					  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+					  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+					</f:then>
+
+ 
+							<f:else if ="{settings.templateLayout} == 2">
+								<f:then>
+								<div class="row top_row">
+									<div class="col-xs-12 col-sm-6 col-lg-6 col-xl-6 content newsdisplay">
+												<f:for each="{news}" as="newsItem">
+														<f:render partial="List/Item-combained" arguments="{newsItem: newsItem, settings:settings}"/>
+												</f:for>
+									</div>
+									<div class="col-xs-12 col-sm-6 col-lg-6 col-xl-6 news newsbrowse">
+										<ul class="news" style="list-style: none;">
+												<f:for each="{news}" as="newsItem">
+														<f:render partial="List/Item-special" arguments="{newsItem: newsItem, settings:settings}"/>
+												</f:for>
+										</ul>
+									</div>
+								</div>
+								</f:then>
+							</f:else>
+							<f:else>
+                <div class="news news-list-view">
+                    <f:for each="{news}" as="newsItem">
+                        <f:render partial="List/Item" arguments="{newsItem: newsItem, settings:settings}"/>
+                    </f:for>
+                </div>
+            </f:else>
+        </f:if>
+    </f:then>
+    <f:else>
+       <div class="no-news-found"><f:translate key="list_nonewsfound" /></div>
+    </f:else>
+</f:if>

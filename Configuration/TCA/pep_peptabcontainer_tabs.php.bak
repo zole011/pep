@@ -1,0 +1,55 @@
+<?php
+
+return [
+    'ctrl' => [
+        'title' => 'Tab Item',
+        'label' => 'title',
+        'tstamp' => 'tstamp',
+        'crdate' => 'crdate',
+        'delete' => 'deleted',
+        'hidden' => 'hidden',
+        'enablecolumns' => [
+            'disabled' => 'hidden',
+        ],
+    ],
+    'columns' => [
+        'title' => [
+            'label' => 'Title',
+            'config' => [
+                'type' => 'input',
+                'eval' => 'trim',
+            ],
+        ],
+        'content' => [
+            'label' => 'Content',
+            'config' => [
+                'type' => 'inline',
+                'foreign_table' => 'tt_content',
+                'foreign_field' => 'parent',
+                'foreign_sortby' => 'sorting',
+                'foreign_match_fields' => [
+                    'parent_fieldname' => 'content',
+                ],
+                'appearance' => [
+                    'collapseAll' => true,
+                    'newRecordLinkTitle' => 'Add content element',
+                ],
+            ],
+        ],
+        'parent' => [
+            'config' => [
+                'type' => 'passthrough',
+            ],
+        ],
+        'parent_fieldname' => [
+            'config' => [
+                'type' => 'passthrough',
+            ],
+        ],
+        'sorting' => [
+            'config' => [
+                'type' => 'passthrough',
+            ],
+        ],
+    ],
+];

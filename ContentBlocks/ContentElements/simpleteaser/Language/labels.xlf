@@ -4,7 +4,7 @@
 		<header/>
 		<body>
 			<trans-unit id="title" resname="title">
-				<source>Test</source>
+				<source>Simpleteaser</source>
 			</trans-unit>
 			<trans-unit id="description" resname="description">
 				<source>Call to action area with button</source>

@@ -1,0 +1,40 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+	  data-namespace-typo3-fluid="true">
+<!--
+	=====================
+		Partials/List/Item.html
+-->
+<div class="single-latest-item{f:if(condition: newsItem.istopnews, then: ' topnews')}" itemscope="itemscope" itemtype="http://schema.org/Article" data-id="{newsItem.uid}">
+	<n:excludeDisplayedNews newsItem="{newsItem}"/>
+
+
+	<!-- header -->
+	<div class="single-latest-text">
+		<h3 style="margin-bottom:20px;">
+			<n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+				<span itemprop="headline">{newsItem.title}</span>
+			</n:link>
+		</h3>
+
+
+	<!-- teaser -->
+	<p>
+		<n:removeMediaTags>
+		<f:if condition="{newsItem.teaser}">
+			<f:then>
+				{newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+			</f:then>
+			<f:else>
+				{newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+			</f:else>
+		</f:if>
+		</n:removeMediaTags>
+
+		<n:link newsItem="{newsItem}" settings="{settings}" class="more" title="{newsItem.title}">
+			<f:translate key="more-link"/>
+		</n:link>
+	</p>
+	</div>
+</div>
+</html>

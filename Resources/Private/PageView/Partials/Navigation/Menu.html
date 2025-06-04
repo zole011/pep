@@ -5,7 +5,7 @@
         <v:menu pageUid="{v:variable.typoscript(path:'settings.site.rootPid')}" as="menu">
           <ul id="nav">
             <f:for each="{menu}" as="menuPage">
-              <li class="{menuPage.class}">
+              <li class="{menuPage.class}dropdown">
                 <f:if condition="{menuPage.author}">
                   <f:then>
                     <p>{menuPage.title}</p>

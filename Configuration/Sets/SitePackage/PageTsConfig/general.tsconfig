@@ -28,3 +28,5 @@ TCEMAIN {
         }
     }
 }
+
+RTE.default.preset = full

@@ -14,14 +14,14 @@
     "suggest": {
         "friendsoftypo3/content-blocks": "Allows to create custom content elements. "
     },
-    "autoload": {
-        "psr-4": {
-            "Gmbit\\Pep\\": "Classes/"
-        }
-    },
-    "extra": {
-        "typo3/cms": {
-            "extension-key": "pep"
-        }
-    }
+	  "autoload": {
+      "psr-4": {
+        "Gmbit\\Pep\\": "Classes/"
+      }
+	  },
+	  "extra": {
+		"typo3/cms": {
+		  "extension-key": "pep"
+		}
+	}
 }

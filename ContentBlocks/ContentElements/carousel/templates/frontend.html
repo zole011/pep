@@ -1,29 +1,93 @@
 <f:asset.css identifier="content-block-css-t3docs-t3docs/carousel" href="{cb:assetPath()}/frontend.css"/>
 <f:asset.script identifier="content-block-js-t3docs-t3docs/carousel" src="{cb:assetPath()}/frontend.js"/>
+		<v:asset.script>
+		  const flexroot = document.querySelector('.flexroot');
+		  let screenOrientation;
+		  let currentSlide;
 
-<div id="carousel{data.uid}" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <f:for each="{data.carousel_items}" as="item" iteration="iteration">
-            <button type="button" data-bs-target="#carousel{data.uid}" data-bs-slide-to="{iteration.index}" class="{f:if(condition: '{iteration.isFirst}', then:' active')}" aria-current="true" aria-label="{item.header}"></button>
-        </f:for>
-    </div>
-    <div class="carousel-inner">
-        <f:for each="{data.carousel_items}" as="item" iteration="iteration">
-            <div class="carousel-item{f:if(condition: '{iteration.isFirst}', then:' active')}">
-                <f:image image="{item.image}" class="d-block w-100"/>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>{item.header}</h5>
-                    <f:format.html>{item.description}</f:format.html>
-                </div>
-            </div>
-        </f:for>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carousel{data.uid}" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden"><f:translate key="{cb:languagePath()}:previous.label"/></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carousel{data.uid}" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden"><f:translate key="{cb:languagePath()}:next.label"/></span>
-    </button>
-</div>
+		  function debounce(callback, time) {
+			let timeout;
+			return function() {
+			  const context = this;
+			  const args = arguments;
+			  if (timeout) {
+				clearTimeout(timeout);
+			  }
+			  timeout = setTimeout(function() {
+				timeout = null;
+				callback.apply(context, args);
+			  }, time);
+			}
+		  }
+
+		  function getScreenOrientation(event) {
+			const prevOrientation = screenOrientation;
+			screenOrientation = window.outerWidth > window.outerHeight ? 'landscape' : 'portrait';
+			if (prevOrientation !== screenOrientation) renderFlexSlider();
+		  }
+
+		  function renderFlexSlider() {
+			flexroot.classList.remove('landscape', 'portrait');
+			flexroot.classList.add(screenOrientation);
+
+			currentSlide = 0;
+			const slides = flexroot.querySelectorAll('.f_slide:not(.clone)');
+			for (let i=0; i < slides.length; i++) {
+			  if (slides[i].classList.contains('flex-active-slide')) {
+				currentSlide = i;
+				break;
+			  }
+			}
+			if (flexroot.firstChild) flexroot.firstChild.remove();
+			document.querySelector('.flexroot').innerHTML = '<div class="flexslider"><div class="slides"></div></div>';
+
+			var images = [];
+			var content = [];
+			var collection = document.querySelectorAll('.hidden-slides > div')
+			collection.forEach(coll => {
+			  images.push(coll.querySelector('.' + screenOrientation));
+			  content.push(coll.querySelector('.f_content'));
+			});
+
+			images.forEach((image, index) => {
+			  var temp = document.createElement('div');
+			  temp.innerHTML = '<div class="f_slide"></div>';
+			  temp.querySelector('.f_slide').appendChild(image.cloneNode());
+			  temp.querySelector('.f_slide').appendChild(content[index].cloneNode(true));
+			  document.querySelector('.flexslider .slides').appendChild(temp.firstChild)
+              console.log(image)
+			});
+
+			$('.flexslider').flexslider({
+			  animation: 'slide',
+			  selector: '.slides > .f_slide',
+			  controlNav: false,
+			  startAt: currentSlide,
+			  prevText: '',
+			  nextText: '',
+			});
+		  }
+
+		  window.addEventListener("resize", debounce(getScreenOrientation, 250));
+		  getScreenOrientation();
+
+		</v:asset.script>
+
+
+		<div class="hidden-slides" style="display:none">
+            <f:for each="{data.image}" as="image">
+			<div>
+          <f:image image="{image}" cropVariant="landscape" class="landscape" height="700"/>
+          <f:image image="{image}" cropVariant="portrait" class="portrait" height="558"/>      
+
+		  <div class="f_content">
+			<f:link.typolink parameter="{image.properties.link}">
+			  <h2><f:format.html>{image.properties.title}</f:format.html></h2>
+			</f:link.typolink>
+			<h3>{image.properties.alternative}</h3>
+			<f:format.html><p>{v:format.trim(content: image.properties.description)}</p></f:format.html>
+		  </div>
+			</div>
+            </f:for>
+	</div>
+	<div class="flexroot"></div>

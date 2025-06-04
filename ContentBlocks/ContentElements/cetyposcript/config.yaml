@@ -1,0 +1,11 @@
+name: pep/cetyposcript
+label: 'Teaser Box (DataProcessor)'
+typeName: pep_cetyposcript
+group: pep
+prefixFields: true
+prefixType: full
+fields:
+  - identifier: source_page
+    type: Number
+    label: 'Source Page ID'
+    default: 14

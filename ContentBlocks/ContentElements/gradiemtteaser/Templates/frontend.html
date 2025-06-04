@@ -1,0 +1,38 @@
+<div style="display: flex; flex-direction: row; margin-top: 50px;">
+<f:if condition="{data.select} == 'left'">
+    <f:then>
+    <div class="banner_image position_left" style="background-image: url('{f:uri.image(image: data.image.0)}');">
+        <f:if condition="{data.toggle}">
+        <div class="background_overlay" style="background-color:{data.bg_color}"></div>
+        </f:if>
+        <div class="fade_gradient" style="background-image: linear-gradient(to right, transparent, {data.bg_color});"></div>
+    </div>
+    <div style="background-color: {data.bg_color}; flex: 1;">
+        <h2 class="left">
+        <f:link.typolink parameter="{data.button_link}"><span style="font-family: 'Roboto Slab', serif; color: {data.text_color};font-weight: normal;">{data.header}</span></f:link.typolink>
+        </h2>
+        <div class="banner-button-bottom left">
+        <f:link.typolink parameter="{data.button_link}" class="button-default">{data.button_text}</f:link.typolink>
+        </div>
+        <div><f:format.html>{data.bodytext}</f:format.html></div>
+    </div>
+    </f:then>
+    <f:else>
+    <div style="background-color: {data.bg_color}; flex: 1; color: {data.text_color};">
+        <h2 class="right">
+        <f:link.typolink parameter="{data.button_link}"><span style="font-family: 'Roboto Slab', serif; color: {data.text_color};font-weight: normal;">{data.header}</span></f:link.typolink>
+        </h2>
+        <div class="banner-button-bottom right">
+        <f:link.typolink parameter="{data.button_link}" class="button-default">{data.button_text}</f:link.typolink>
+        </div>
+        <div><f:format.html>{data.bodytext}</f:format.html></div>
+    </div>
+    <div class="banner_image position_right" style="background-image: url('{f:uri.image(image: data.image.0)}');">
+        <f:if condition="{data.toggle}">
+        <div class="background_overlay" style="background-color:{data.bg_color}"></div>
+        </f:if>
+        <div class="fade_gradient" style="background-image: linear-gradient(to left, transparent, {data.bg_color});"></div>
+    </div>
+    </f:else>
+</f:if>
+</div>

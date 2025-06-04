@@ -4,20 +4,27 @@ group: pep
 prefixFields: true
 prefixType: full
 fields:
-  - identifier: carousel_items
-    type: Collection
-    minitems: 1
-    appearance:
-      collapseAll: true
-      levelLinksPosition: both
-    fields:
-      - identifier: image
-        type: File
-        allowed: common-image-types
-        minitems: 1
-        relationship: manyToOne
-      - identifier: header
-        type: Text
-      - identifier: description
-        type: Textarea
-        enableRichtext: true
+  - identifier: header
+    useExistingField: true
+  - identifier: image
+    type: File
+    allowed: common-image-types
+    cropVariants:
+      desktop:
+        title: Desktop
+        allowedAspectRatios:
+          landscape:
+            title: Landscape
+            value: 4 / 3
+      landscape:
+        title: Landscape
+        allowedAspectRatios:
+          landscape:
+            title: landscape
+            value: 2.4
+      portrait:
+        title: Portrait
+        allowedAspectRatios:
+          portrait:
+            title: Portrait
+            value: 0.5625

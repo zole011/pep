@@ -1,0 +1,24 @@
+lib.teaser = COA_INT
+lib.teaser {
+    10 = CONTENT
+    10 {
+        table = tt_content
+        select {
+ 
+            selectFields = *, rand() as virt_rnd
+ 
+            # UID of the page with the content elements
+            pidInList = 14
+            #where = colPos=1
+ 
+            # amount of content elements to find
+            max = 1
+ 
+            # randomize
+            orderBy = virt_rnd
+ 
+            # constrain by language
+            languageField = sys_language_uid
+        }
+    }
+} 

@@ -1,0 +1,33 @@
+name: pep/testerflex
+typeName: pep_testerflex
+group: pep
+prefixFields: true
+prefixType: full
+fields:
+  -
+    identifier: header
+    useExistingField: true
+  -
+    identifier: subheader
+    useExistingField: true
+  -
+    identifier: bodytext
+    useExistingField: true
+    enableRichtext: true
+  -
+    identifier: button_text
+    type: Text
+    default: 'Read more'
+    min: 4
+    max: 15
+  -
+    identifier: button_link
+    type: Link
+    required: false   
+  -
+    identifier: image
+    type: File
+    extendedPalette: false
+    minitems: 1
+    maxitems: 10
+    allowed: common-image-types

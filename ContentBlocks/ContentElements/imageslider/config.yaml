@@ -1,0 +1,43 @@
+name: pep/imageslider
+typeName: pep_imageslider
+group: pep
+prefixFields: true
+prefixType: full
+fields:
+  - identifier: header
+    useExistingField: true
+  - identifier: assets
+    useExistingField: true
+    allowed: jpg,jpeg,png,svg,gif
+    cropVariants:
+      desktop:
+        title: Desktop
+        allowedAspectRatios:
+          portrait:
+            title: Portrait
+            value: 0.75
+          landscape:
+            title: Landscape
+            value: 4 / 3
+        focusArea:
+          x: 0.3
+          y: 0.3
+          width: 0.4
+          height: 0.4
+        coverAreas:
+          - x: 0.1
+            y: 0.8
+            width: 0.8
+            height: 0.1
+      landscape:
+        title: Landscape
+        allowedAspectRatios:
+          landscape:
+            title: Landscape
+            value: 2.4
+      portrait:
+        title: Portrait
+        allowedAspectRatios:
+          portrait:
+            title: Portrait
+            value: 0.5625

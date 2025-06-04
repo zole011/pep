@@ -1,20 +1,26 @@
-<?xml version="1.0"?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file datatype="plaintext" original="labels.xlf" source-language="en" date="2024-11-24T18:55:27+00:00" product-name="t3docs/jumbotron">
-		<header/>
-		<body>
-			<trans-unit id="title" resname="title">
-				<source>Jumbotron</source>
-			</trans-unit>
-			<trans-unit id="description" resname="description">
-				<source>Call to action area with button</source>
-			</trans-unit>
-			<trans-unit id="button_text.label" resname="button_text.label">
-				<source>Button Text</source>
-			</trans-unit>
-			<trans-unit id="button_link.label" resname="button_link.label">
-				<source>Button Link</source>
-			</trans-unit>
-		</body>
-	</file>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2023-01-01T12:00:00Z" product-name="pep">
+        <header/>
+        <body>
+            <trans-unit id="peptabcontainer_title" resname="peptabcontainer_title">
+                <source>PEPTab Kontejner</source>
+            </trans-unit>
+            <trans-unit id="peptabcontainer_description" resname="peptabcontainer_description">
+                <source>Kontejner sa dinamičkim tabovima.</source>
+            </trans-unit>
+            <trans-unit id="peptabcontainer_tabs_label" resname="peptabcontainer_tabs_label">
+                <source>Tabovi</source>
+            </trans-unit>
+            <trans-unit id="peptabitem_title" resname="peptabitem_title">
+                <source>PEPTab Stavka</source>
+            </trans-unit>
+            <trans-unit id="peptabitem_header" resname="peptabitem_header">
+                <source>Naslov Taba</source>
+            </trans-unit>
+            <trans-unit id="peptabitem_tab_icon" resname="peptabitem_tab_icon">
+                <source>Ikona Taba (Font Awesome klasa)</source>
+            </trans-unit>
+        </body>
+    </file>
 </xliff>
